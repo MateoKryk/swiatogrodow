@@ -1,0 +1,657 @@
+/* Reset stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styl nagłówka */
+/* Styl nagłówka */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #4CAF50;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: nowrap; /* Zapobiega zawijaniu elementów na dużych ekranach */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-image {
+    width: 75px;
+    height: auto;
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* Nawigacja */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #c2f0c2;
+}
+
+/* Przycisk CTA */
+.cta {
+    text-decoration: none;
+    color: white;
+    background-color: #FF5733;
+    padding: 10px 20px; /* Odstępy wewnętrzne */
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    display: inline-block; /* Dopasowuje szerokość do zawartości */
+    max-width: 100%; /* Ogranicza szerokość przycisku na mniejszych ekranach */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu w jednej linii */
+    width: auto; /* Ustawienie szerokości na automatyczną */
+}
+
+.cta:hover {
+    background-color: #FF784F;
+    transform: scale(1.05);
+}
+
+/* Responsywność: dopasowanie przycisku na mniejszych ekranach */
+@media (max-width: 1230px) {
+    .cta {
+        font-size: 0.9em; /* Zmniejszenie tekstu w przycisku */
+        padding: 10px 15px; /* Zmniejszenie odstępów */
+        width: auto; /* Zachowanie automatycznej szerokości */
+        white-space: normal; /* Zezwolenie na zawijanie tekstu, jeśli to konieczne */
+        text-align: center; /* Wyśrodkowanie zawartości */
+    }
+}
+
+
+/* Hamburger */
+.hamburger {
+    display: none; /* Domyślnie ukryty */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsywność: małe ekrany */
+@media (max-width: 1230px) {
+    .header {
+        flex-wrap: wrap; /* Elementy mogą zawijać się */
+        justify-content: center; /* Wyśrodkowanie elementów */
+    }
+
+    .logo {
+        flex-direction: column; /* Logo i tekst w pionie */
+        align-items: center; /* Wyśrodkowanie logo i tekstu */
+        gap: 5px;
+    }
+
+    .logo-image {
+        width: 60px; /* Zmniejszamy rozmiar logo */
+    }
+
+    .logo h1 {
+        font-size: 1.5em; /* Zmniejszamy rozmiar tekstu */
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none; /* Ukrywamy menu na mniejszych ekranach */
+        flex-direction: column;
+        background-color: #4CAF50;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .nav-links.show {
+        display: flex; /* Pokazujemy menu po kliknięciu w hamburgera */
+    }
+
+    .cta {
+        flex: 1 1 100%; /* Przyciski zajmują całą szerokość */
+        text-align: center; /* Wyśrodkowanie przycisku */
+        margin-top: 15px;
+    }
+
+    .hamburger {
+        display: flex; /* Pokazujemy hamburgera */
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+}
+
+
+/* Styl sekcji hero */
+.hero {
+    display: flex;
+    flex-direction: column; /* Ustawia elementy w kolumnie */
+    justify-content: center; /* Wyśrodkowuje elementy w pionie */
+    align-items: center; /* Wyśrodkowuje elementy w poziomie */
+    height: 100vh; /* Wysokość pełnego ekranu */
+    padding: 20px;
+    background-image: url('hero.jpg'); /* Obraz tła */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em; /* Rozmiar tytułu */
+    margin-bottom: 20px; /* Odstęp poniżej tytułu */
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 40px; /* Odstęp poniżej opisu */
+}
+
+/* Przyciski w sekcji hero */
+.hero-buttons {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie przycisku */
+    align-items: center; /* Dostosowanie w pionie */
+    margin-top: 20px;
+}
+
+/* Animacja pulsowania */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1); /* Powiększenie o 10% */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Przycisk CTA z efektem pulsowania */
+.cta-hero {
+    text-decoration: none;
+    color: white;
+    background-color: #FF5733;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    animation: pulse 1.5s infinite; /* Efekt pulsowania */
+}
+
+.cta-hero:hover {
+    background-color: #FF784F;
+    transform: scale(1.05);
+}
+
+/* Dostosowanie dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em; /* Zmniejszenie rozmiaru tytułu */
+    }
+
+    .hero p {
+        font-size: 1em; /* Zmniejszenie rozmiaru opisu */
+        margin-bottom: 20px; /* Dopasowanie odstępów */
+    }
+
+    .cta-hero {
+        font-size: 1em; /* Zmniejszenie rozmiaru tekstu */
+        padding: 10px 20px; /* Dopasowanie odstępów */
+        width: 90%; /* Przycisk zajmuje większą część ekranu */
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+/* Styl sekcji usług */
+.services {
+    padding: 50px 10%;
+    text-align: center;
+    background-color: #f9f9f9; /* Jasne tło */
+    color: #333;
+}
+
+.services h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4CAF50; /* Zielony nagłówek */
+}
+
+.services p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Elastyczny układ dla małych ekranów */
+    gap: 20px; /* Odstęp między kartami */
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 20px); /* 3 kolumny na szerokich ekranach */
+    max-width: calc(33.333% - 20px); /* Maksymalna szerokość karty */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card img {
+    width: 100%; /* Rozmiar ikon */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Efekt unoszenia */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Mocniejszy cień */
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column; /* Ustawia karty pionowo */
+        align-items: center; /* Centruje karty */
+    }
+
+    .service-card {
+        max-width: 100%; /* Karty na pełną szerokość */
+    }
+}
+/* Sekcja formularza */
+.consultation {
+    padding: 50px 10%;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.consultation h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.consultation p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Formularz */
+.consultation-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Przycisk wysyłania */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .consultation {
+        padding: 20px;
+    }
+
+    .consultation-form {
+        width: 100%;
+    }
+}
+/* Styl dla błędnego pola */
+/* Styl dla błędnego pola */
+.error {
+    border: 2px solid #FF5733; /* Czerwona ramka */
+    background-color: #ffe6e6; /* Jasnoczerwone tło */
+}
+
+/* Styl dla komunikatu błędu */
+.error-message {
+    color: #FF5733;
+    font-size: 0.9em;
+    margin-top: 5px;
+    font-weight: bold;
+}
+/* Styl stopki */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-logo,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 200px;
+}
+
+.footer-logo h2 {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+}
+
+.footer-contact a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer-social .social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.footer-social .social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Responsywność dla stopki */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+
+/* Sekcja O nas */
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Jasne tło */
+    color: #333; /* Kolor tekstu */
+}
+
+.about h2 {
+    font-size: 2.5em; /* Rozmiar nagłówka */
+    margin-bottom: 20px;
+    color: #4CAF50; /* Zielony kolor dla nagłówka */
+}
+
+.about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px; /* Ograniczenie szerokości tekstu */
+    color: #555; /* Subtelniejszy odcień tekstu */
+}
+
+.cta-about {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Zielony kolor przycisku */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cta-about:hover {
+    background-color: #45a049; /* Jaśniejszy zielony na hover */
+    transform: scale(1.05); /* Powiększenie przycisku na hover */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .about h2 {
+        font-size: 2em; /* Zmniejszenie nagłówka na mniejszych ekranach */
+    }
+
+    .about p {
+        font-size: 1em; /* Zmniejszenie rozmiaru tekstu */
+        padding: 0 10px; /* Dodatkowe marginesy wewnętrzne */
+    }
+}
+/* Sekcja FAQ */
+.faq {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Jasne tło */
+    color: #333;
+    text-align: center;
+}
+
+.faq-container {
+    max-width: 800px; /* Ograniczenie szerokości sekcji */
+    margin: 0 auto;
+}
+
+.faq h2 {
+    font-size: 2.5em;
+    color: #4CAF50; /* Zielony kolor tytułu */
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Linia oddzielająca pytania */
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #45a049; /* Jaśniejszy zielony na hover */
+}
+
+.faq-answer {
+    display: none; /* Odpowiedź jest ukryta domyślnie */
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+}
+
+/* Widoczna odpowiedź */
+.faq-item.active .faq-answer {
+    display: block; /* Pokazanie odpowiedzi */
+}
